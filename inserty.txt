@@ -1,0 +1,261 @@
+INSERT INTO uprawnienia (id_uprawnienia, nazwa_uprawnienia)
+VALUES (1, 'Przeglądanie wyników badań');
+
+INSERT INTO uprawnienia (id_uprawnienia, nazwa_uprawnienia)
+VALUES (2, 'Wystawianie recepty');
+
+INSERT INTO uprawnienia (id_uprawnienia, nazwa_uprawnienia)
+VALUES (3, 'Edycja wizyty');
+
+INSERT INTO uprawnienia (id_uprawnienia, nazwa_uprawnienia)
+VALUES (4, 'Przeglądanie dokumentacji medycznej');
+
+INSERT INTO uprawnienia (id_uprawnienia, nazwa_uprawnienia)
+VALUES (5, 'Edytowanie dokumentacji medycznej');
+
+
+INSERT INTO miasto_wojewodztwo (miasto, wojewodztwo)
+VALUES ('Warszawa', 'Mazowieckie');
+
+INSERT INTO miasto_wojewodztwo (miasto, wojewodztwo)
+VALUES ('Kraków', 'Małopolskie');
+
+INSERT INTO miasto_wojewodztwo (miasto, wojewodztwo)
+VALUES ('Poznań', 'Wielkopolskie');
+
+INSERT INTO miasto_wojewodztwo (miasto, wojewodztwo)
+VALUES ('Gdańsk', 'Pomorskie');
+
+INSERT INTO miasto_wojewodztwo (miasto, wojewodztwo)
+VALUES ('Wrocław', 'Dolnośląskie');
+
+
+INSERT INTO kod_miasto (kod_pocztowy, miasto_wojewodztwo_miasto)
+VALUES ('00-000', 'Warszawa');
+
+INSERT INTO kod_miasto (kod_pocztowy, miasto_wojewodztwo_miasto)
+VALUES ('11-111', 'Kraków');
+
+INSERT INTO kod_miasto (kod_pocztowy, miasto_wojewodztwo_miasto)
+VALUES ('22-222', 'Poznań');
+
+INSERT INTO kod_miasto (kod_pocztowy, miasto_wojewodztwo_miasto)
+VALUES ('33-333', 'Gdańsk');
+
+INSERT INTO kod_miasto (kod_pocztowy, miasto_wojewodztwo_miasto)
+VALUES ('44-444', 'Wrocław');
+
+INSERT INTO adresy (id_adresu, ulica, nr_lokalu, kod_miasto_kod_pocztowy)
+VALUES (1, 'ul. Krakowska', '1', '00-000');
+
+INSERT INTO adresy (id_adresu, ulica, nr_lokalu, kod_miasto_kod_pocztowy)
+VALUES (2, 'ul. Warszawska', '2', '11-111');
+
+INSERT INTO adresy (id_adresu, ulica, nr_lokalu, kod_miasto_kod_pocztowy)
+VALUES (3, 'ul. Poznańska', '3', '22-222');
+
+INSERT INTO adresy (id_adresu, ulica, nr_lokalu, kod_miasto_kod_pocztowy)
+VALUES (4, 'ul. Gdańska', '4', '33-333');
+
+INSERT INTO adresy (id_adresu, ulica, nr_lokalu, kod_miasto_kod_pocztowy)
+VALUES (5, 'ul. Wrocławska', '5', '44-444');
+
+INSERT INTO pacjenci (id_pacjenta, imie, nazwisko, data_urodzenia, pesel, numer_telefonu, uprawnienia_id_uprawnienia, adresy_id_adresu)
+VALUES (1, 'Jan', 'Kowalski', '11–JAN–99', '12345678901', '123-456-789', 1, 1);
+
+INSERT INTO pacjenci (id_pacjenta, imie, nazwisko, data_urodzenia, pesel, numer_telefonu, uprawnienia_id_uprawnienia, adresy_id_adresu)
+VALUES (2, 'Anna', 'Nowak', '02–FEB–00', '23456789012', '234-567-890', 1, 2);
+
+INSERT INTO pacjenci (id_pacjenta, imie, nazwisko, data_urodzenia, pesel, numer_telefonu, uprawnienia_id_uprawnienia, adresy_id_adresu)
+VALUES (3, 'Piotr', 'Wiśniewski', '03–MAR–01', '34567890123', '345-678-901', 1, 3);
+
+INSERT INTO pacjenci (id_pacjenta, imie, nazwisko, data_urodzenia, pesel, numer_telefonu, uprawnienia_id_uprawnienia, adresy_id_adresu)
+VALUES (4, 'Katarzyna', 'Dąbrowska', '11–APR–02', '45678901234', '456-789-012', 1, 4);
+
+INSERT INTO pacjenci (id_pacjenta, imie, nazwisko, data_urodzenia, pesel, numer_telefonu, uprawnienia_id_uprawnienia, adresy_id_adresu)
+VALUES (5, 'Marcin', 'Kwiatkowski', '08–JUN–03', '56789012345', '567-890-123', 1, 5);
+
+INSERT INTO dokumentacja_medyczna (id_dokumentacja_medyczna, pacjenci_id_pacjenta)
+VALUES (1, 1);
+
+INSERT INTO dokumentacja_medyczna (id_dokumentacja_medyczna, pacjenci_id_pacjenta)
+VALUES (2, 2);
+
+INSERT INTO dokumentacja_medyczna (id_dokumentacja_medyczna, pacjenci_id_pacjenta)
+VALUES (3, 3);
+
+INSERT INTO dokumentacja_medyczna (id_dokumentacja_medyczna, pacjenci_id_pacjenta)
+VALUES (4, 4);
+
+INSERT INTO dokumentacja_medyczna (id_dokumentacja_medyczna, pacjenci_id_pacjenta)
+VALUES (5, 5);
+
+INSERT INTO rola_pracownika (id_Rola_pracownika, stanowisko, specjalizacja)
+VALUES (1, 'Lekarz', 'Dermatolog');
+
+INSERT INTO rola_pracownika (id_Rola_pracownika, stanowisko, specjalizacja)
+VALUES (2, 'Pielęgniarka', NULL);
+
+INSERT INTO rola_pracownika (id_Rola_pracownika, stanowisko, specjalizacja)
+VALUES (3, 'Recepcjonista', NULL);
+
+INSERT INTO rola_pracownika (id_Rola_pracownika, stanowisko, specjalizacja)
+VALUES (4, 'Lekarz', 'Kardiolog');
+
+INSERT INTO rola_pracownika (id_Rola_pracownika, stanowisko, specjalizacja)
+VALUES (5, 'Lekarz', 'Okulista');
+
+INSERT INTO pracownicy (id_pracownika, imie, nazwisko, telefon, rola_pracownika_id_rola, adresy_id_adresu)
+VALUES (1, 'Jan', 'Kowalski', '123-456-789', 1, 1);
+
+INSERT INTO pracownicy (id_pracownika, imie, nazwisko, telefon, rola_pracownika_id_rola, adresy_id_adresu)
+VALUES (2, 'Anna', 'Nowak', '234-567-890', 2, 2);
+
+INSERT INTO pracownicy (id_pracownika, imie, nazwisko, telefon, rola_pracownika_id_rola, adresy_id_adresu)
+VALUES (3, 'Piotr', 'Wiśniewski', '345-678-901', 3, 3);
+
+INSERT INTO pracownicy (id_pracownika, imie, nazwisko, telefon, rola_pracownika_id_rola, adresy_id_adresu)
+VALUES (4, 'Henryk', 'Knot', '234-567-890', 4, 4);
+
+INSERT INTO pracownicy (id_pracownika, imie, nazwisko, telefon, rola_pracownika_id_rola, adresy_id_adresu)
+VALUES (5, 'Grażyna', 'Garncarz', '345-678-901', 5, 5);
+
+INSERT INTO leki (id_leki, nazwa_leku)
+VALUES (1, 'Paracetamol');
+
+INSERT INTO leki (id_leki, nazwa_leku)
+VALUES (2, 'Ibuprofen');
+
+INSERT INTO leki (id_leki, nazwa_leku)
+VALUES (3, 'Aspiryna');
+
+INSERT INTO leki (id_leki, nazwa_leku)
+VALUES (4, 'Apap');
+
+INSERT INTO leki (id_leki, nazwa_leku)
+VALUES (5, 'Acetaminophen');
+
+
+INSERT INTO recepty (id_recepty, data_wystawienia, opis_recepty, pracownicy_id_pracownika)
+VALUES (1, '11–JAN–22', 'Recepta na lek przeciwbólowy', 5);
+
+INSERT INTO recepty (id_recepty, data_wystawienia, opis_recepty, pracownicy_id_pracownika)
+VALUES (2, '02–FEB–22', 'Recepta na lek przeciwalergiczny', 1);
+
+INSERT INTO recepty (id_recepty, data_wystawienia, opis_recepty, pracownicy_id_pracownika)
+VALUES (3, '03–MAR–22', 'Recepta na lek przeciwzapalny', 4);
+
+INSERT INTO recepty (id_recepty, data_wystawienia, opis_recepty, pracownicy_id_pracownika)
+VALUES (4, '11–APR–22', 'Recepta na lek przeciwhistaminowy', 4);
+
+INSERT INTO recepty (id_recepty, data_wystawienia, opis_recepty, pracownicy_id_pracownika)
+VALUES (5, '08–JUN–22', 'Recepta na lek przeciwbakteryjny', 5);
+
+INSERT INTO recepty_leki (recepty_id_recepty, leki_id_leki)
+VALUES (1, 1);
+
+INSERT INTO recepty_leki (recepty_id_recepty, leki_id_leki)
+VALUES (2, 2);
+
+INSERT INTO recepty_leki (recepty_id_recepty, leki_id_leki)
+VALUES (3, 3);
+
+INSERT INTO recepty_leki (recepty_id_recepty, leki_id_leki)
+VALUES (4, 4);
+
+INSERT INTO recepty_leki (recepty_id_recepty, leki_id_leki)
+VALUES (5, 5);
+
+INSERT INTO skierowania (id_skierowania, data_wystawienia, numer_skierowania, opis_skierowania, miejsce_skierowania)
+VALUES (1, '01–JAN–22', 101, 'Skierowanie do kardiologa', 'Centrum Medyczne Medyk Rzeszów');
+
+INSERT INTO skierowania (id_skierowania, data_wystawienia, numer_skierowania, opis_skierowania, miejsce_skierowania)
+VALUES (2, '02–FEB–22', 102, 'Skierowanie do okulisty', 'Profamilia Warszawa');
+
+INSERT INTO skierowania (id_skierowania, data_wystawienia, numer_skierowania, opis_skierowania, miejsce_skierowania)
+VALUES (3, '03–MAR–22', 103, 'Skierowanie do dermatologa', 'NZOZ Sokrates Kraków');
+
+INSERT INTO wyniki_badan (id_wyniki_badan, opis_wyniku)
+VALUES (1, 'Niedobór żelaza');
+INSERT INTO wyniki_badan (id_wyniki_badan, opis_wyniku)
+VALUES (2, 'Wszystkie narząd w normie');
+
+INSERT INTO badania (id_badania, nazwa_badania, opis_badania, wyniki_badan_id_wyniki_badan)
+VALUES (1, 'Morfologia', 'Badanie składu krwi', 1);
+
+INSERT INTO badania (id_badania, nazwa_badania, opis_badania, wyniki_badan_id_wyniki_badan)
+VALUES (2, 'RTG', 'Badanie rentgenowskie', NULL);
+
+INSERT INTO badania (id_badania, nazwa_badania, opis_badania, wyniki_badan_id_wyniki_badan)
+VALUES (3, 'USG', 'Badanie ultrasonograficzne', 2);
+
+INSERT INTO badania (id_badania, nazwa_badania, opis_badania, wyniki_badan_id_wyniki_badan)
+VALUES (4, 'Tomografia komputerowa', 'Badanie obrazowe metodą CT', NULL);
+
+INSERT INTO badania (id_badania, nazwa_badania, opis_badania, wyniki_badan_id_wyniki_badan)
+VALUES (5, 'MRI', 'Badanie rezonansem magnetycznym', NULL);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (1, 1);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (2, 1);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (3, 1);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (4, 1);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (5, 1);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (1, 4);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (2, 4);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (3, 4);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (4, 4);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (5, 4);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (1, 5);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (2, 5);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (3, 5);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (4, 5);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (5, 5);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (4, 2);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (1, 2);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (5, 2);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (3, 3);
+
+INSERT INTO uprawnienia_pracownicy (uprawnienia_id_uprawnienia, pracownicy_id_pracownika)
+VALUES (4, 3);
+
+INSERT INTO rejestracja (id_wizyty, data_wizyty, godzina_rozpoczecia, godzina_zakonczenia, opis_wizyty, status_wizyty, skierowania_id_skierowania, recepty_id_recepty, badania_id_badania, pracownicy_id_pracownika, pacjenci_id_pacjenta)
+VALUES (1, '01–JAN–22', '01–JAN–22 09:00:00', '01–JAN–22 10:00:00', 'Wizyta lekarska', 'Odbyta', 1, NULL, 2, 4, 1);
+
+

@@ -1,0 +1,61 @@
+select * from rejestracja
+where data_wizyty > '01-01-2022'
+
+select COUNT(id_wizyty) as liczba_wizyt_lekarze
+from rejestracja 
+inner join pracownicy on Pracownicy_id_Pracownika=id_Pracownika
+inner join rola_pracownika on Rola_pracownika_id_Rola=id_Rola_pracownika
+where rola_pracownika.stanowisko = 'Lekarz'
+
+select id_pracownika, imie, nazwisko, stanowisko, specjalizacja
+from pracownicy 
+inner join rola_pracownika on Rola_pracownika_id_Rola=id_Rola_pracownika
+where rola_pracownika.stanowisko = 'Pielęgniarka'
+
+select imie,nazwisko, status_wizyty
+from rejestracja 
+inner join pacjenci on pacjenci_id_pacjenta=id_pacjenta
+where status_wizyty='Odbyta'
+
+select id_skierowania, imie, nazwisko, id_wizyty, data_wizyty
+from rejestracja
+inner join pacjenci on pacjenci_id_pacjenta=id_pacjenta
+inner join skierowania on skierowania_id_skierowania=id_skierowania
+
+select id_pracownika, imie, nazwisko, stanowisko, specjalizacja
+from pracownicy 
+inner join rola_pracownika on Rola_pracownika_id_Rola=id_Rola_pracownika
+where rola_pracownika.stanowisko = 'Lekarz'
+
+select count(id_wizyty) as liczba_wizyt, imie, nazwisko, stanowisko
+from rejestracja
+inner join pracownicy on pracownicy_id_pracownika=id_pracownika
+inner join rola_pracownika on rola_pracownika_id_rola=id_rola_pracownika
+group by imie, nazwisko, stanowisko
+order by count(id_wizyty) desc
+fetch first 1 row only
+
+select id_pacjenta, imie, nazwisko, data_wystawienia, opis_recepty, nazwa_leku
+from pacjenci
+left join rejestracja on pacjenci.id_pacjenta=rejestracja.pacjenci_id_pacjenta
+left join recepty on rejestracja.recepty_id_recepty=recepty.id_recepty
+left join recepty_leki on recepty.id_recepty=recepty_leki.recepty_id_recepty
+left join leki on leki_id_leki=id_leki
+where id_pacjenta=3
+
+select id_pacjenta, imie, nazwisko, nazwa_badania, opis_badania, opis_wyniku
+from pacjenci
+left join rejestracja on pacjenci.id_pacjenta=rejestracja.pacjenci_id_pacjenta
+left join badania on badania_id_badania=id_badania
+left join wyniki_badan on wyniki_badan_id_wyniki_badan=id_wyniki_badan
+where id_pacjenta=2
+
+select id_dokumentacja_medyczna, id_pacjenta, imie, nazwisko, id_wizyty, data_wizyty, status_wizyty, nazwa_badania, opis_badania, opis_wyniku
+from dokumentacja_medyczna
+left join pacjenci on dokumentacja_medyczna.pacjenci_id_pacjenta=pacjenci.id_pacjenta
+left join rejestracja on pacjenci.id_pacjenta=rejestracja.pacjenci_id_pacjenta
+left join badania on badania_id_badania=id_badania
+left join wyniki_badan on wyniki_badan_id_wyniki_badan=id_wyniki_badan
+where id_pacjenta=2
+
+
